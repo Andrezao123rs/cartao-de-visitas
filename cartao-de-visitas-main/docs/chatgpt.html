@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Formulário</title>
+</head>
+
+<body>
+
+<h1>Formulários</h1>
+<p>Aula sobre formulários em HTML</p>
+
+<form id="form">
+
+    <input
+            type="text"
+            id="nome"
+            name="nome"
+            placeholder="Digite o seu nome"
+            required
+    >
+
+    <br><br>
+
+    <input
+            type="password"
+            id="senha"
+            name="senha"
+            placeholder="Digite sua senha"
+            required
+    >
+
+    <br><br>
+
+    <p>Escolha qual é sua cor favorita:</p>
+
+    <input type="radio" id="azul" name="cor_favorita" value="Azul">
+    <label for="azul">Azul</label><br>
+
+    <input type="radio" id="vermelho" name="cor_favorita" value="Vermelho">
+    <label for="vermelho">Vermelho</label><br>
+
+    <input type="radio" id="verde" name="cor_favorita" value="Verde">
+    <label for="verde">Verde</label><br><br>
+
+    <input
+            id="enviar"
+            type="submit"
+            value="Enviar"
+    >
+
+</form>
+
+<script>
+
+    function dizer_ola(event) {
+
+        event.preventDefault();
+
+        let nome = document.getElementById('nome').value;
+        let senha = document.getElementById('senha').value;
+
+        let cor = document.querySelector('input[name="cor_favorita"]:checked');
+
+        if (cor) {
+            alert(
+                'Seja bem vindo ' + nome +
+                '! Sua senha é: ' + senha +
+                '. Sua cor favorita é: ' + cor.value
+            );
+        } else {
+            alert('Escolha uma cor favorita.');
+        }
+    }
+
+    document
+        .getElementById('form')
+        .addEventListener('submit', dizer_ola);
+
+</script>
+
+</body>
+</html>
